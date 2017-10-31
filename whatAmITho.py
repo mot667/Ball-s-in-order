@@ -5,12 +5,15 @@ import numpy as np
 import pic
 import SimpleCV as scv
 
-indicoio.config.api_key = '1c990c2d1249de9e871ce34b2f4a7b16'
+open_file=open('../keys.txt','r')
+file_lines=open_file.readlines()
+key =file_lines[0].strip()
+indicoio.config.api_key = key
 collection = Collection("materials")
 
 imgPath = "./images/img.jpg"
 analyseImgPath = "./images/analyse.jpg"
-mycam = scv.Camera(1)
+mycam = scv.Camera()
 
 while(1):
     print("1: take photo, 2: view photo, 3: train for current selection, 4: predict, 5:train, exit:exit")
